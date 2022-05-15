@@ -14,19 +14,26 @@
   
   <!-- Font Awesome icons -->
   <script src="https://kit.fontawesome.com/99696cc9f5.js" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>   
     <div>
-      <i class="fa fa-solid fa-bars fa-lg" onclick='toggleComponent(".overlay")'></i>
+      <!-- <i class="fa fa-solid fa-bars fa-lg nav_icon" onclick='toggleComponent(".overlay")'></i> -->
     </div>
     <div>
-      <input type="text" placeholder="shoes" onclick='toggleComponent(".menu")'></input>
+      <input type="text" placeholder="shoes" onclick='toggleComponent(".menu"); hideComponent(".shopping_cart")'></input>
     </div>
-    <div class="icon_shopping_cart">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" onclick='toggleComponent(".shopping_cart"); toggleComponent(".searchbar")'>
-        <path d="M9.6 25.6C7.84 25.6 6.416 27.04 6.416 28.8C6.416 30.56 7.84 32 9.6 32C11.36 32 12.8 30.56 12.8 28.8C12.8 27.04 11.36 25.6 9.6 25.6ZM0 0V3.2H3.2L8.96 15.344L6.8 19.264C6.544 19.712 6.4 20.24 6.4 20.8C6.4 22.56 7.84 24 9.6 24H28.8V20.8H10.272C10.048 20.8 9.872 20.624 9.872 20.4L9.92 20.208L11.36 17.6H23.28C24.48 17.6 25.536 16.944 26.08 15.952L31.808 5.568C31.936 5.344 32 5.072 32 4.8C32 3.92 31.28 3.2 30.4 3.2H6.736L5.232 0H0ZM25.6 25.6C23.84 25.6 22.416 27.04 22.416 28.8C22.416 30.56 23.84 32 25.6 32C27.36 32 28.8 30.56 28.8 28.8C28.8 27.04 27.36 25.6 25.6 25.6Z" fill="white"/>
-      </svg> 
+    <div class="nav_shopping_cart nav_icon">
+      <div onclick='toggleComponent(".shopping_cart"); hideComponent(".menu"); hideComponent(".searchbar")'>
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.6 25.6C7.84 25.6 6.416 27.04 6.416 28.8C6.416 30.56 7.84 32 9.6 32C11.36 32 12.8 30.56 12.8 28.8C12.8 27.04 11.36 25.6 9.6 25.6ZM0 0V3.2H3.2L8.96 15.344L6.8 19.264C6.544 19.712 6.4 20.24 6.4 20.8C6.4 22.56 7.84 24 9.6 24H28.8V20.8H10.272C10.048 20.8 9.872 20.624 9.872 20.4L9.92 20.208L11.36 17.6H23.28C24.48 17.6 25.536 16.944 26.08 15.952L31.808 5.568C31.936 5.344 32 5.072 32 4.8C32 3.92 31.28 3.2 30.4 3.2H6.736L5.232 0H0ZM25.6 25.6C23.84 25.6 22.416 27.04 22.416 28.8C22.416 30.56 23.84 32 25.6 32C27.36 32 28.8 30.56 28.8 28.8C28.8 27.04 27.36 25.6 25.6 25.6Z" fill="white"/>
+        </svg>
+      </div> 
     </div>    
   </nav>
   <div class="searchbar">
@@ -36,12 +43,12 @@
     <div class="overlay_menu">
       <div class="overlay_menu__header">
         <div>
-          <i class="fa fa-solid fa-close fa-lg" onclick='toggleComponent(".overlay")'></i>
+          <i class="fa fa-solid fa-close fa-lg nav_icon" onclick='toggleComponent(".overlay")'></i>
         </div>  
       </div>
     </div>
   </div>
-  <div class="menu dropdown">
+  <div class="menu dropdown hide">
     <ul class="brands">
       <li class="brand">
         <svg width="83" height="26" viewBox="0 0 83 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,100 +85,118 @@
     </ul>
     <div class="content">
       <div class="categories">
+        <h1 class="categories__title">Categories</h1>
         <ul class="categories__list">
-          <h1>Categories</h1>
-          <li class="categories__list__item">Women's Shoes</li>
-          <li class="categories__list__item">Men's Shoes</li>
-          <li class="categories__list__item">Kids Shoes</li>
-          <li class="categories__list__item">Winter Shoes</li>
-          <li class="categories__list__item">Sneakers</li>
+          <li class="categories__list__item"><a href="#">Women's Shoes</a></li>
+          <li class="categories__list__item"><a href="#">Men's Shoes</a></li>
+          <li class="categories__list__item"><a href="#">Kids Shoes</a></li>
+          <li class="categories__list__item"><a href="#">Winter Shoes</a></li>
+          <li class="categories__list__item"><a href="#">Sneakers</a></li>
         </ul>
       </div>
       <div class="products">
-        <div class="product_card">
-          <p class="product_card__title">Shoes 1</p>
-          <p class="product_card__price">1 990 Kč</p>
-          <button class="add_to_cart__button hide">
-            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
-              </svg>
-            <p>Add to cart</p>              
-          </button>
-        </div>
-        
-        <div class="product_card">
-          <p class="product_card__title">Shoes 2</p>
-          <p class="product_card__price">3 590 Kč</p>
-          <button class="add_to_cart__button hide">
-            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
-              </svg>
-            <p>Add to cart</p>              
-          </button>
-        </div>
-        
-        <div class="product_card">
-          <p class="product_card__title">Shoes 3</p>
-          <p class="product_card__price">2 490 Kč</p>
-          <button class="add_to_cart__button hide">
-            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
-              </svg>
-            <p>Add to cart</p>              
-          </button>
-        </div>
-        
-        <div class="product_card">
-          <p class="product_card__title">Shoes 4</p>
-          <p class="product_card__price">3 190 Kč</p>
-          <button class="add_to_cart__button hide">
-            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
-              </svg>
-            <p>Add to cart</p>              
-          </button>
-        </div>
-        
-        <div class="product_card">
-          <p class="product_card__title">Shoes 5</p>
-          <p class="product_card__price">2 990 Kč</p>
-          <button class="add_to_cart__button hide">
-            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
-              </svg>
-            <p>Add to cart</p>              
-          </button>
-        </div>
-        
-        <div class="product_card">
-          <p class="product_card__title">Shoes 6</p>
-          <p class="product_card__price">1 690 Kč</p>
-          <button class="add_to_cart__button hide">
-            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
-              </svg>
-            <p>Add to cart</p>              
-          </button>
+        <div class="product_cards">
+          <div class="product_card" id="product_card_1">
+            <div class="fade_rectangle" >
+              <p class="product_card__title">Shoes 1</p>
+              <p class="product_card__price">1 990 Kč</p>
+              <button class="add_to_cart__button">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
+                </svg>
+              <p>Add to cart</p>              
+              </button>
+            </div>
+          </div>
+          
+          <div class="product_card" id="product_card_2">
+            <div class="fade_rectangle" onmouseenter='console.log(this)' >
+              <p class="product_card__title">Shoes 2</p>
+              <p class="product_card__price">3 590 Kč</p>
+              <button class="add_to_cart__button hide">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
+                </svg>
+              <p>Add to cart</p>              
+              </button>
+            </div>
+          </div>
+          
+          <div class="product_card" id="product_card_3">
+            <div class="fade_rectangle" >
+              <p class="product_card__title">Shoes 3</p>
+              <p class="product_card__price">2 490 Kč</p>
+              <button class="add_to_cart__button hide">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
+                </svg>
+              <p>Add to cart</p>              
+              </button>
+            </div>
+          </div>
+          
+          <div class="product_card" id="product_card_4">
+            <div class="fade_rectangle" >
+              <p class="product_card__title">Shoes 4</p>
+              <p class="product_card__price">3 190 Kč</p>
+              <button class="add_to_cart__button hide">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
+                </svg>
+              <p>Add to cart</p>              
+              </button>
+            </div>
+          </div>
+          
+          <div class="product_card" id="product_card_5">
+            <div class="fade_rectangle" >
+              <p class="product_card__title">Shoes 5</p>
+              <p class="product_card__price">2 990 Kč</p>
+              <button class="add_to_cart__button hide">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
+                </svg>
+              <p>Add to cart</p>              
+              </button>
+            </div>
+          </div>
+          
+          <div class="product_card" id="product_card_6">
+            <div class="fade_rectangle" >
+              <p class="product_card__title">Shoes 6</p>
+              <p class="product_card__price">1 690 Kč</p>
+              <button class="add_to_cart__button hide">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.44048 6.09524H8.92857V3.80952H11.1607V2.28571H8.92857V0H7.44048V2.28571H5.20833V3.80952H7.44048V6.09524ZM4.46429 12.9524C3.64583 12.9524 2.98363 13.6381 2.98363 14.4762C2.98363 15.3143 3.64583 16 4.46429 16C5.28274 16 5.95238 15.3143 5.95238 14.4762C5.95238 13.6381 5.28274 12.9524 4.46429 12.9524ZM11.9048 12.9524C11.0863 12.9524 10.4241 13.6381 10.4241 14.4762C10.4241 15.3143 11.0863 16 11.9048 16C12.7232 16 13.3929 15.3143 13.3929 14.4762C13.3929 13.6381 12.7232 12.9524 11.9048 12.9524ZM4.59077 10.4762L4.6131 10.3848L5.28274 9.14286H10.8259C11.3839 9.14286 11.875 8.83048 12.128 8.3581L15 3.01714L13.7054 2.28571H13.6979L12.8795 3.80952L10.8259 7.61905H5.60268L5.50595 7.41333L3.83929 3.80952L3.13244 2.28571L2.43304 0.761905H0V2.28571H1.4881L4.16667 8.06857L3.1622 9.93524C3.04315 10.1486 2.97619 10.4 2.97619 10.6667C2.97619 11.5048 3.64583 12.1905 4.46429 12.1905H13.3929V10.6667H4.77679C4.68006 10.6667 4.59077 10.5829 4.59077 10.4762Z" fill="black"/>
+                </svg>
+              <p>Add to cart</p>              
+              </button>
+            </div>
+          </div>
         </div>
         <button class="show_all__button">Show All</button>
       </div>
     </div>
   </div>
-  <div class="shopping_cart dropdown">
-    <h1>Cart</h1>
-    <h2 class="empty_cart hide">Your cart is empty :( </h2>
-    <img class="empty_cart__img hide" src="https://th.bing.com/th/id/R.9ef8d591bb6746957a748a0f84a01d5b?rik=8IzPbdrmbYvLzQ&pid=ImgRaw&r=0" title="Empty shopping cart" />
-    <ul class="shoping_cart__items"> <!-- if arr.lenght === 0 { display "Shopping cart empty :( + "Start shopping" button } -->
-      <li class="shoping_cart__item">
-        <img class="shoping_cart__item__img" src="https://th.bing.com/th/id/OIP.ATVUFANoIvUaiNQZ2VwdpwHaFp?pid=ImgDet&rs=1" title="Sample shoes" />
-        <div class="shoping_cart__item__about">
-          <p class="shoping_cart__item__name">Shoes 1</p>
-          <p class="shopping_car__item__size">Size 11</p>
-        </div>
-        <p class="shoping_cart__item__price">1 990 Kč</p>
-      </li>
-    </ul>
-    <button class="checkout__button">Checkout</button>
+  <div class="shopping_cart dropdown hide">
+    <div>
+      <h2>Cart</h2>
+      <h1 class="empty_cart hide">Your cart is empty :( </h1>
+      <img class="empty_cart__img hide" src="https://th.bing.com/th/id/R.9ef8d591bb6746957a748a0f84a01d5b?rik=8IzPbdrmbYvLzQ&pid=ImgRaw&r=0" title="Empty shopping cart" />
+      <ul class="shoping_cart__items"> <!-- if arr.lenght === 0 { display "Shopping cart empty :( + "Start shopping" button } -->
+        <li class="shoping_cart__item">
+          <div class="shoping_cart__item__about">
+            <div class="shoping_cart__item__picture" title="shoes-1@2x.png" ></div>
+            <div>
+              <p class="shoping_cart__item__name">Shoes 1</p>
+              <p class="shopping_car__item__size">Size 11</p>
+            </div>
+          </div>
+          <p class="shoping_cart__item__price">1 990 Kč</p>
+        </li>
+      </ul>
+      <button class="checkout__button">Checkout</button>
+    </div>
   </div>
 </body>
 </html>
