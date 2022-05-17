@@ -15,11 +15,14 @@
     --font_h1: normal 700 2.5rem/2rem 'Poppins', Verdana, sans-serif;
     --font_h2: normal 700 1.1rem/3rem 'Poppins', Verdana, sans-serif;
     --font_button: normal 700 1rem/1rem 'Poppins', Verdana, sans-serif;
-    --font_product_title: normal 700 1.4rem/1.5em 'Poppins', Verdana, sans-serif;
-    --font_product_price: normal 700 1.1em/1.3em 'Poppins', Verdana, sans-serif;
+    --font_product_title_mobile: normal 700 .8rem/1.5em 'Poppins', Verdana, sans-serif;
+    --font_product_price_mobile: normal 700 .7rem/1.3em 'Poppins', Verdana, sans-serif;
+    --font_product_title_desktop: normal 700 1.4rem/1.5em 'Poppins', Verdana, sans-serif;
+    --font_product_price_desktop: normal 700 1.1em/1.3em 'Poppins', Verdana, sans-serif;
     --font_li__mobile: normal 400 1rem/2rem 'Poppins', Verdana, sans-serif;
     --font_li__desktop: normal 400 1rem/2.5rem 'Poppins', Verdana, sans-serif;
-    --font_add_to_cart: normal 700 .9rem/1rem 'Poppins', Verdana, sans-serif;
+    --font_add_to_cart_mobile: normal 700 .8rem/1rem 'Poppins', Verdana, sans-serif;
+    --font_add_to_cart_desktop: normal 700 .9rem/1rem 'Poppins', Verdana, sans-serif;
     --font_cart_title: normal 700 0.8rem/1rem 'Poppins', Verdana, sans-serif;
     --font_cart_size: normal 400 0.7rem/100% 'Poppins', Verdana, sans-serif;
     --font_cart_price: normal 700 0.8rem/1rem 'Poppins', Verdana, sans-serif;
@@ -95,9 +98,9 @@ nav .nav_icon:not(.countItems), .nav_icon > div:not(.countItems), .nav_icon > di
     height: 1rem;
     text-align: center;
     font: var(--font_notification);
-    color: #fff;
+    color: var(--contrast__color);
     right: -30%;
-    top: -5%;
+    top: -2%;
     background-color: var(--notification__color);
     border-radius: 100%;
 }
@@ -115,6 +118,7 @@ input {
     color: var(--contrast__color);
     outline: none;
 }
+
 /* Edge */  
 input::-webkit-input-placeholder { color: var(--contrast__color) }
 /* Internet Explorer 10-11 */
@@ -260,12 +264,21 @@ ul { list-style-type: none; }
 .content > .products > .product_cards > .product_card > .fade_rectangle {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     width: 101%;
     height: 101%;
     border-radius: 1rem 1rem 0px 0px;
     background: var(--product_card_fade__background);
+}
+
+.fade_rectangle > div {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .content > .products > .product_cards > .product_card > .fade_rectangle:hover {
@@ -282,29 +295,23 @@ ul { list-style-type: none; }
     align-items: center;
     justify-content: space-evenly;    
     position: absolute;
-    left: calc(50% - 5rem);
-    top: calc(45% - 1.5rem);
-    width: 10rem;
-    height: 3rem;
     color: var(--black1__color);
     background-color: transparent;
     border-radius: 2.5rem;
     border: .15rem solid var(--black1__color);
-    font: var(--font_add_to_cart);
+    font: var(--font_add_to_cart_mobile);
 }
 
-.content > .products > .product_cards > .product_card .add_to_cart__button svg { height: 1rem; width: 1rem }
+.content > .products > .product_cards > .product_card .add_to_cart__button svg { height: .7rem; width: 1rem }
 
-.content > .products > .product_cards > .product_card > .fade_rectangle > .product_card__title {
-    font: var(--font_product_title);
+.content > .products > .product_cards > .product_card > .fade_rectangle .product_card__title {
+    font: var(--font_product_title_mobile);
     color: var(--black2__color);
-    margin-left: 10.5px;
 }
 
-.content > .products > .product_cards > .product_card > .fade_rectangle > .product_card__price {
-    font: var(--font_product_price);
+.content > .products > .product_cards > .product_card > .fade_rectangle .product_card__price {
+    font: var(--font_product_price_mobile);
     color: var(--accent__color);
-    margin-right: 10.5px;
 }
 
 .empty_cart {
@@ -350,7 +357,7 @@ ul { list-style-type: none; }
 
 .shopping_cart h2 {
     font: var(--font_h2);
-    padding: 1.5rem 1.5rem .5rem 1.5rem;
+    margin: 1.5rem 1.5rem .5rem 1.5rem;
 }
 
 .shopping_cart li.shopping_cart__item {
@@ -386,7 +393,6 @@ ul { list-style-type: none; }
 
 /* for tablet */
 @media only screen and (min-width: 481px) {
-
     nav input { display: block; }
     .searchbar { display: none; }
     
@@ -397,6 +403,14 @@ ul { list-style-type: none; }
     .content > .products > .product_cards > .product_card {
         flex: 1 1 20%;
     }
+
+    .add_to_cart__button {
+        font: var(--font_add_to_cart_desktop);
+        padding: 0.5rem 1rem;
+        height: 20%;
+    }
+
+    .content > .products > .product_cards > .product_card .add_to_cart__button svg { height: 1rem; width: 1rem }
 }
 
 /* for desktop */
@@ -491,14 +505,19 @@ ul { list-style-type: none; }
 
     .shopping_cart:after { right: 10.5%; }
 
-    
+}
 
-    /* 1133 */
-    @media only screen and (min-width: 920px) {
-        .fade_rectangle {
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-start;
-        }
+/* laptop M */
+@media only screen and (min-width: 1152px) {
+    .content > .products > .product_cards > .product_card > .fade_rectangle .product_card__title {
+        font: var(--font_product_title_desktop);
+        color: var(--black2__color);
+        margin-left: 10.5px;
+    }
+    
+    .content > .products > .product_cards > .product_card > .fade_rectangle .product_card__price {
+        font: var(--font_product_price_desktop);
+        color: var(--accent__color);
+        margin-right: 10.5px;
     }
 }
